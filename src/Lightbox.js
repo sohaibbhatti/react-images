@@ -250,13 +250,12 @@ class Lightbox extends Component {
 			images,
 			onClickImage,
 			showThumbnails,
+                        imageProps,
 		} = this.props;
 
 		const { imageLoaded } = this.state;
 
 		if (!images || !images.length) return null;
-
-                let imageProps = this.props.imageProps || {};
 
 		const image = images[currentImage];
 		const sourceSet = normalizeSourceSet(image);
@@ -401,6 +400,7 @@ Lightbox.propTypes = {
 	theme: PropTypes.object,
 	thumbnailOffset: PropTypes.number,
 	width: PropTypes.number,
+        imageProps: PropTypes.object,
 };
 Lightbox.defaultProps = {
 	closeButtonTitle: 'Close (Esc)',
@@ -420,6 +420,7 @@ Lightbox.defaultProps = {
 	theme: {},
 	thumbnailOffset: 2,
 	width: 1024,
+        imageProps: {},
 };
 Lightbox.childContextTypes = {
 	theme: PropTypes.object.isRequired,

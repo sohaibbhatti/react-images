@@ -1268,7 +1268,8 @@ var Lightbox = function (_Component) {
 			    currentImage = _props3.currentImage,
 			    images = _props3.images,
 			    onClickImage = _props3.onClickImage,
-			    showThumbnails = _props3.showThumbnails;
+			    showThumbnails = _props3.showThumbnails,
+			    imageProps = _props3.imageProps;
 			var imageLoaded = this.state.imageLoaded;
 
 
@@ -1284,7 +1285,7 @@ var Lightbox = function (_Component) {
 			return React__default.createElement(
 				'figure',
 				{ className: aphrodite.css(this.classes.figure) },
-				React__default.createElement('img', {
+				React__default.createElement('img', _extends({
 					className: aphrodite.css(this.classes.image, imageLoaded && this.classes.imageLoaded),
 					onClick: onClickImage,
 					sizes: sizes,
@@ -1295,7 +1296,7 @@ var Lightbox = function (_Component) {
 						cursor: onClickImage ? 'pointer' : 'auto',
 						maxHeight: 'calc(100vh - ' + heightOffset + ')'
 					}
-				})
+				}, imageProps))
 			);
 		}
 	}, {
@@ -1418,7 +1419,8 @@ Lightbox.propTypes = {
 	spinnerSize: PropTypes.number,
 	theme: PropTypes.object,
 	thumbnailOffset: PropTypes.number,
-	width: PropTypes.number
+	width: PropTypes.number,
+	imageProps: PropTypes.object
 };
 Lightbox.defaultProps = {
 	closeButtonTitle: 'Close (Esc)',
@@ -1437,7 +1439,8 @@ Lightbox.defaultProps = {
 	spinnerSize: 100,
 	theme: {},
 	thumbnailOffset: 2,
-	width: 1024
+	width: 1024,
+	imageProps: {}
 };
 Lightbox.childContextTypes = {
 	theme: PropTypes.object.isRequired

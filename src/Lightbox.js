@@ -256,6 +256,8 @@ class Lightbox extends Component {
 
 		if (!images || !images.length) return null;
 
+                let imageProps = this.props.imageProps || {};
+
 		const image = images[currentImage];
 		const sourceSet = normalizeSourceSet(image);
 		const sizes = sourceSet ? '100vw' : null;
@@ -282,6 +284,7 @@ class Lightbox extends Component {
 						cursor: onClickImage ? 'pointer' : 'auto',
 						maxHeight: `calc(100vh - ${heightOffset})`,
 					}}
+                                        {...imageProps}
 				/>
 			</figure>
 		);
